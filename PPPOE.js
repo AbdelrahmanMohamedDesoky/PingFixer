@@ -1,3 +1,4 @@
+require('dotenv').config();
 const puppeteer = require('puppeteer');
 const delay = require('delay');
 
@@ -9,11 +10,11 @@ function reset_pppoe(){
         };
         const browser = await puppeteer.launch(puppeteer_options);
         const page = await browser.newPage();
-        await page.goto('https://192.168.2.1');
+        await page.goto(process.env.URL);
 
         // Login
-        await page.type('#index_username', 'admin');
-        await page.type('#password', 'kaymera50505050');
+        await page.type('#index_username', process.env.USERNAME);
+        await page.type('#password', process.env.PASSWORD);
         await page.click('#loginbtn');
         await page.waitForNavigation();
 
@@ -21,18 +22,16 @@ function reset_pppoe(){
         await page.waitForSelector('#internet_settings_menu');
         await page.click('#internet_settings_menu');
 
-
         // Reset PPPOEE
         await page.waitForSelector("#wan_setup_InternetGatewayDevice_WANDevice_2_WANConnectionDevice_1_WANPPPConnection_1__reset");
-        console.log("Restarting PPPOE Now !");
+        console.log("Restarting PPPOE Now !, Please Wait for 10 Seconds For New IP to Take Effect");
         await page.click('#wan_setup_InternetGatewayDevice_WANDevice_2_WANConnectionDevice_1_WANPPPConnection_1__reset');
 
         // Done Close Browser
         await browser.close();
 
         // Waiting For New IP
-        console.log("Waiting 10 Seconds For New IP to Take Effect first");
-        await delay(10000);
+        await delay(13000);
         resolve(true);
     });
 }

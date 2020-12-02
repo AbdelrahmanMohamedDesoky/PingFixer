@@ -6,8 +6,8 @@ const PingChecker = require('./PingChecker');
     console.log(`Checking Latency, Please Wait ...`);
     let ping = await PingChecker.getPing();
     let restart_counter = 0;
-    while (!(ping.max != 'unknown' && ping.max < 70)){
-        console.log(`Bad Ping Detected : ${ping.max}`);
+    while (!(ping.max != 'unknown' && ping.max <= 70)){
+        console.log(`Bad Ping Detected : ${ping.max}, Attempting To Restart PPPOE Connection`);
         await PPPOE.reset_pppoe();
         restart_counter++;
         ping = await PingChecker.getPing();

@@ -5,7 +5,7 @@ const delay = require('delay');
 function reset_pppoe(){
     return new Promise(async resolve => {
         const puppeteer_options = {
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
         };
         const browser = await puppeteer.launch(puppeteer_options);

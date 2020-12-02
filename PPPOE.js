@@ -5,7 +5,7 @@ const delay = require('delay');
 function reset_pppoe(){
     return new Promise(async resolve => {
         const puppeteer_options = {
-            headless: true,
+            headless: false,
             ignoreHTTPSErrors: true,
         };
         const browser = await puppeteer.launch(puppeteer_options);
@@ -13,8 +13,8 @@ function reset_pppoe(){
         await page.goto(process.env.ROUTER_URL);
 
         // Login
-        await page.type('#index_username', process.env.USERNAME);
-        await page.type('#password', process.env.PASSWORD);
+        await page.type('#index_username', process.env.ROUTER_USERNAME);
+        await page.type('#password', process.env.ROUTER_PASSWORD);
         await page.click('#loginbtn');
         await page.waitForNavigation();
 

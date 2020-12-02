@@ -10,7 +10,7 @@ function reset_pppoe(){
         };
         const browser = await puppeteer.launch(puppeteer_options);
         const page = await browser.newPage();
-        await page.goto(process.env.URL);
+        await page.goto(process.env.ROUTER_URL);
 
         // Login
         await page.type('#index_username', process.env.USERNAME);

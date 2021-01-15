@@ -18,7 +18,7 @@ async function start() {
             break;
         }
         if (process.env.HG630V2) {
-            await PPPOE.reset_pppoe();
+            //await PPPOE.reset_pppoe();
             restart_counter++;
         }
         ping = await PingChecker.getPing();
@@ -30,7 +30,7 @@ async function start() {
 }
 
 function isPingBad(ping) {
-    if (process.env.MOCK) return true;
+    if (!process.env.MOCK) return true;
     return typeof(parseInt(ping.max)) != 'number' || ping.max > process.env.ACCEPTABLE_LATENCY;
 }
 

@@ -17,6 +17,7 @@ async function setBestRoute() {
         console.log(`Route : ${currentRoute}, Latency : ${current_route_ping.max}`);
         if (typeof parseInt(current_route_ping.max) == 'number' && current_route_ping.max < best_route_ping.max){
             bestRoute = currentRoute;
+            best_route_ping = current_route_ping
         }
     }
     console.log(`Setting Best Route For Yisp Server : ${bestRoute}`);

@@ -6,10 +6,17 @@
   "scripts": {
     "start": "node app.js"
   },
+  "pkg": {
+    "scripts": "node_modules/puppeteer/lib/*.js",
+    "targets": [
+      "latest-win-x64"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "delay": "^4.3.0",
+    "axios": "^0.21.1",
+    "delay": "^4.4.0",
     "dotenv": "^8.2.0",
     "ping": "^0.2.3",
     "puppeteer": "^4.0.1"

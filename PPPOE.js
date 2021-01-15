@@ -1,4 +1,3 @@
-require('dotenv').config();
 const puppeteer = require('puppeteer');
 const delay = require('delay');
 
@@ -24,14 +23,14 @@ function reset_pppoe(){
 
         // Reset PPPOEE
         await page.waitForSelector("#wan_setup_InternetGatewayDevice_WANDevice_2_WANConnectionDevice_1_WANPPPConnection_1__reset");
-        console.log("Restarting PPPOE Now !, Please Wait for 10 Seconds For New IP to Take Effect");
+        console.log("Restarting PPPOE Now! - Please Wait for 15 Seconds");
         await page.click('#wan_setup_InternetGatewayDevice_WANDevice_2_WANConnectionDevice_1_WANPPPConnection_1__reset');
 
         // Done Close Browser
         await browser.close();
 
         // Waiting For New IP
-        await delay(13000);
+        await delay(15000);
         resolve(true);
     });
 }

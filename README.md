@@ -9,5 +9,6 @@ npm install
 
 ## Usage
 ```bash
-npm start
+npm run start   -   for normal PPPOE restarting
+npm run reroute -   for rerouting using Yisp (Only If you understand what It means)
 ```

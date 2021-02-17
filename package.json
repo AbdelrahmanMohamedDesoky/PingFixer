@@ -15,10 +15,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "average-array": "^1.0.0",
     "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
     "delay": "^4.4.0",
     "dotenv": "^8.2.0",
     "ping": "^0.2.3",
-    "puppeteer": "^4.0.1"
+    "puppeteer": "^4.0.1",
+    "tcpie": "^9.0.1"
   }
 }

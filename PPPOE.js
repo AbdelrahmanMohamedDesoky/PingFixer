@@ -4,7 +4,7 @@ let interval_id;
 function reset_pppoe(){
     return new Promise(async resolve => {
         const puppeteer_options = {
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
         };
         appendToConsole('Attempting To Change IP Because your IP is fucked ');
@@ -35,7 +35,7 @@ function reset_pppoe(){
         // Waiting For New IP
         await delay(15000);
         clearInterval(interval_id);
-        appendToConsole(' Done ! - Testing New IP');
+        appendToConsole(' Done ! - Testing New IP', true);
         resolve(true);
     });
 }
